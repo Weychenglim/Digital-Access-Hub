@@ -5,33 +5,52 @@ import type React from "react"
 import { useState } from "react"
 import Link from "next/link"
 import { Phone, Mail, MapPin, Calendar, Clock, Users } from "lucide-react"
+import SuccessDialog from "@/components/success-dialog"
+import { submitAssistanceRequest, type AssistanceRequestData } from "@/app/actions/help-actions"
 
 export default function HelpPage() {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
-  const [helpType, setHelpType] = useState("")
-  const [message, setMessage] = useState("")
-  const [submitted, setSubmitted] = useState(false)
+  const [formData, setFormData] = useState<AssistanceRequestData>({
+    name: "",
+    email: "",
+    phone: "",
+    helpType: "",
+    message: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false)
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setError(null)
 
-    // In a real application, this would send data to a server
-    // For now, we'll just simulate a successful submission
-
-    // Simulate API call delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    // Show success message
-    setSubmitted(true)
-
-    // Reset form
-    setName("")
-    setEmail("")
-    setPhone("")
-    setHelpType("")
-    setMessage("")
+    try {
+      // Call the server action to submit the form
+      const result = await submitAssistanceRequest(formData)
+      if (result.success) {
+        setShowSuccessDialog(true)
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          helpType: "",
+          message: "",
+        })
+      } else {
+        setError(result.message)
+      }
+    } catch (err) {
+      setError("An unexpected error occurred. Please try again.")
+      console.error("Error submitting form:", err)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -156,15 +175,11 @@ export default function HelpPage() {
 
             <div>
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Schedule Assistance</h2>
-              {submitted ? (
-                <div className="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg mb-6">
-                  <h3 className="text-xl font-bold mb-2">Thank You!</h3>
-                  <p className="text-lg">
-                    We've received your request for assistance. One of our volunteers will contact you within 24 hours
-                    to schedule your session.
-                  </p>
+              {error && (
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+                  <p>{error}</p>
                 </div>
-              ) : null}
+                )}
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-lg font-medium text-gray-700 mb-2">
@@ -173,10 +188,12 @@ export default function HelpPage() {
                   <input
                     type="text"
                     id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div>
@@ -186,10 +203,12 @@ export default function HelpPage() {
                   <input
                     type="email"
                     id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                   name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div>
@@ -199,10 +218,12 @@ export default function HelpPage() {
                   <input
                     type="tel"
                     id="phone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div>
@@ -211,10 +232,12 @@ export default function HelpPage() {
                   </label>
                   <select
                     id="helpType"
-                    value={helpType}
-                    onChange={(e) => setHelpType(e.target.value)}
+                    name="helpType"
+                    value={formData.helpType}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"
                     required
+                    disabled={isSubmitting}
                   >
                     <option value="">Please select...</option>
                     <option value="government">Government Benefits</option>
@@ -231,17 +254,22 @@ export default function HelpPage() {
                   </label>
                   <textarea
                     id="message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     rows={4}
                     className="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"
+                    disabled={isSubmitting}
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="bg-teal-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-teal-700 transition-colors"
+                  disabled={isSubmitting}
+                  className={`bg-teal-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-teal-700 transition-colors ${
+                    isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
                 >
-                  Request Assistance
+                  {isSubmitting ? "Submitting..." : "Request Assistance"}
                 </button>
               </form>
             </div>
@@ -264,7 +292,7 @@ export default function HelpPage() {
                 </div>
                 <div className="flex items-center text-gray-600">
                   <MapPin size={18} className="mr-2" />
-                  <span>Community Center, Room 101</span>
+                  <span>Room 101, Jalan Taman Bunga Raya, Setapak</span>
                 </div>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
@@ -281,7 +309,7 @@ export default function HelpPage() {
                 </div>
                 <div className="flex items-center text-gray-600">
                   <MapPin size={18} className="mr-2" />
-                  <span>Community Center, Room 103</span>
+                  <span>Room 101, Jalan Taman Bunga Raya, Setapak</span>
                 </div>
               </div>
             </div>
@@ -342,6 +370,14 @@ export default function HelpPage() {
           </div>
         </div>
       </footer>
+      <SuccessDialog
+        isOpen={showSuccessDialog}
+        onClose={() => setShowSuccessDialog(false)}
+        title="Assistance Request Received!"
+        message="Thank you for reaching out. We've received your request for assistance."
+        contactMethod="email or phone"
+        actionLink={{ text: "Return to Home", href: "/" }}
+      />
     </div>
   )
 }
