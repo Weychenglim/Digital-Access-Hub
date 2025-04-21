@@ -127,7 +127,7 @@ export default function HelpPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-1">Phone Support</h3>
-                    <p className="text-lg text-gray-700">(555) 123-4567</p>
+                    <p className="text-lg text-gray-700">012-3456789</p>
                     <p className="text-gray-600">Monday-Friday, 9am-5pm</p>
                   </div>
                 </div>
@@ -147,8 +147,7 @@ export default function HelpPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-1">In-Person Help</h3>
-                    <p className="text-lg text-gray-700">Community Center</p>
-                    <p className="text-gray-600">123 Main Street, Anytown, USA</p>
+                    <p className="text-gray-600">1/2 Jalan Taman Bunga Raya, 53300 Setapak, Kuala Lumpur</p>
                     <p className="text-gray-600">Monday-Saturday, 10am-4pm</p>
                   </div>
                 </div>
@@ -332,9 +331,9 @@ export default function HelpPage() {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-              <p className="text-gray-300 mb-2">123 Main Street</p>
-              <p className="text-gray-300 mb-2">Anytown, USA 12345</p>
-              <p className="text-gray-300 mb-2">(555) 123-4567</p>
+              <p className="text-gray-300 mb-2">1/2 Jalan Taman Bunga Raya,</p>
+              <p className="text-gray-300 mb-2">53300 Setapak, Kuala Lumpur</p>
+              <p className="text-gray-300 mb-2">012-3456789</p>
               <p className="text-gray-300">help@digitalaccesshub.org</p>
             </div>
           </div>

@@ -118,13 +118,13 @@ export default function Home() {
           <div className="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Contact Us</h3>
             <p className="text-xl mb-4">
-              <strong>Phone:</strong> (555) 123-4567
+              <strong>Phone:</strong> 012-3456789
             </p>
             <p className="text-xl mb-4">
               <strong>Email:</strong> help@digitalaccesshub.org
             </p>
             <p className="text-xl mb-6">
-              <strong>In Person:</strong> Community Center, 123 Main St.
+              <strong>In Person:</strong> 1/2 Jalan Taman Bunga Raya, <br></br>53300 Setapak, Kuala Lumpur
             </p>
             <Link
               href="/help"
@@ -178,9 +178,9 @@ export default function Home() {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-              <p className="text-gray-300 mb-2">123 Main Street</p>
-              <p className="text-gray-300 mb-2">Anytown, USA 12345</p>
-              <p className="text-gray-300 mb-2">(555) 123-4567</p>
+              <p className="text-gray-300 mb-2">1/2 Jalan Taman Bunga Raya,</p>
+              <p className="text-gray-300 mb-2">53300 Setapak, Kuala Lumpur</p>
+              <p className="text-gray-300 mb-2">012-3456789</p>
               <p className="text-gray-300">help@digitalaccesshub.org</p>
             </div>
           </div>
