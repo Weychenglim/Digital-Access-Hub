@@ -213,9 +213,9 @@ export default function ResourcesPage() {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-              <p className="text-gray-300 mb-2">123 Main Street</p>
-              <p className="text-gray-300 mb-2">Anytown, USA 12345</p>
-              <p className="text-gray-300 mb-2">(555) 123-4567</p>
+              <p className="text-gray-300 mb-2">1/2 Jalan Taman Bunga Raya,</p>
+              <p className="text-gray-300 mb-2">53300 Setapak, Kuala Lumpur</p>
+              <p className="text-gray-300 mb-2">012-3456789</p>
               <p className="text-gray-300">help@digitalaccesshub.org</p>
             </div>
           </div>
