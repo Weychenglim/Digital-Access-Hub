@@ -1,12 +1,41 @@
 import Link from "next/link"
 import { Users, Heart, Award } from "lucide-react"
-import SiteHeader from "@/components/site-header"
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <SiteHeader />
+      <header className="bg-teal-600 text-white py-4 shadow-md">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <h1 className="text-3xl font-bold mb-4 md:mb-0">Digital Access Hub</h1>
+            <nav>
+              <ul className="flex space-x-6 text-lg">
+                <li>
+                  <Link href="/" className="hover:underline font-medium">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/resources" className="hover:underline font-medium">
+                    All Resources
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/help" className="hover:underline font-medium">
+                    Get Help
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className="hover:underline font-medium">
+                    About Us
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-12">
@@ -87,41 +116,30 @@ export default function AboutPage() {
           </p>
           <p className="text-xl text-gray-700">
             Today, we serve hundreds of community members each month, helping them navigate everything from Medicare
-            enrollment to job applications, video calls with family, and accessing useful websites with essential
-            information.
+            enrollment to job applications, video calls with family, and accessing community resources.
           </p>
         </section>
 
         {/* Team Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md">
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Maria Rodriguez</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Lim Wey Cheng</h3>
                 <p className="text-teal-600 font-medium mb-4">Executive Director</p>
                 <p className="text-gray-700 mb-4">
-                  With 15 years of experience in community outreach, Maria leads our organization with passion and
+                  With 15 years of experience in community outreach, Lim leads our organization with passion and
                   vision.
                 </p>
               </div>
             </div>
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md">
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">James Chen</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Thong Shu Heng A/L Thong Keow</h3>
                 <p className="text-teal-600 font-medium mb-4">Technology Director</p>
                 <p className="text-gray-700 mb-4">
-                  James oversees our technical resources and develops accessible solutions for our community members.
-                </p>
-              </div>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md">
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Eleanor Washington</h3>
-                <p className="text-teal-600 font-medium mb-4">Volunteer Coordinator</p>
-                <p className="text-gray-700 mb-4">
-                  Eleanor manages our amazing team of 50+ volunteers who provide one-on-one assistance to community
-                  members.
+                  Thong oversees our technical resources and develops accessible solutions for our community members.
                 </p>
               </div>
             </div>
@@ -201,8 +219,8 @@ export default function AboutPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/websites" className="text-gray-300 hover:text-white">
-                    All Websites
+                  <Link href="/resources" className="text-gray-300 hover:text-white">
+                    Resources
                   </Link>
                 </li>
                 <li>
@@ -224,9 +242,9 @@ export default function AboutPage() {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-              <p className="text-gray-300 mb-2">123 Main Street</p>
-              <p className="text-gray-300 mb-2">Anytown, USA 12345</p>
-              <p className="text-gray-300 mb-2">(555) 123-4567</p>
+              <p className="text-gray-300 mb-2">1/2 Jalan Taman Bunga Raya,</p>
+              <p className="text-gray-300 mb-2">53300 Setapak, Kuala Lumpur</p>
+              <p className="text-gray-300 mb-2">012-3456789</p>
               <p className="text-gray-300">help@digitalaccesshub.org</p>
             </div>
           </div>
