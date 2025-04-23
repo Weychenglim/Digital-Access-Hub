@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { ExternalLink, Loader2 } from "lucide-react"
+import { useEffect, useState } from "react"
 
 interface Website {
   Category: string
@@ -54,7 +54,7 @@ export default function FeaturedWebsites() {
   }
 
   // Display up to 3 featured websites
-  const featuredWebsites = websites.slice(0, 3)
+  const featuredWebsites = [websites[0], websites[1], websites[5]];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
