@@ -90,8 +90,8 @@ export default function VolunteerPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/resources" className="hover:underline font-medium">
-                    All Resources
+                  <Link href="/websites" className="hover:underline font-medium">
+                    All Websites
                   </Link>
                 </li>
                 <li>
@@ -416,7 +416,6 @@ export default function VolunteerPage() {
                   isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                 }`}
                   >
-                    Submit Application
                     {isSubmitting ? "Submitting..." : "Submit Application"}
                   </button>
                 </div>
@@ -444,8 +443,8 @@ export default function VolunteerPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/resources" className="text-gray-300 hover:text-white">
-                    Resources
+                  <Link href="/websites" className="text-gray-300 hover:text-white">
+                    All Websites
                   </Link>
                 </li>
                 <li>
