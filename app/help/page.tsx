@@ -68,8 +68,8 @@ export default function HelpPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/resources" className="hover:underline font-medium">
-                    All Resources
+                  <Link href="/websites" className="hover:underline font-medium">
+                    All Websites
                   </Link>
                 </li>
                 <li>

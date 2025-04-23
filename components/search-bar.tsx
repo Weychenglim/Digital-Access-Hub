@@ -13,7 +13,7 @@ export default function SearchBar() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     if (searchQuery.trim()) {
-      router.push(`/websites?search=${encodeURIComponent(searchQuery)}`)
+      router.push(`/websites/?search=${encodeURIComponent(searchQuery)}`)
     }
   }
 

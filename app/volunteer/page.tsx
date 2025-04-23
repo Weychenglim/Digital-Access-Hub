@@ -90,8 +90,8 @@ export default function VolunteerPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/resources" className="hover:underline font-medium">
-                    All Resources
+                  <Link href="/websites" className="hover:underline font-medium">
+                    All websites
                   </Link>
                 </li>
                 <li>
