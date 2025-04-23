@@ -2,9 +2,9 @@
 
 import type React from "react"
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
 import { Search } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 export default function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -13,7 +13,7 @@ export default function SearchBar() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     if (searchQuery.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery)}`)
+      router.push(`/websites?search=${encodeURIComponent(searchQuery)}`)
     }
   }
 
@@ -22,11 +22,11 @@ export default function SearchBar() {
       <div className="relative flex items-center">
         <input
           type="text"
-          placeholder="Search for resources (e.g., 'food assistance', 'medicare')"
+          placeholder="Search for websites (e.g., 'government services', 'healthcare')"
           className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-full focus:outline-none focus:border-teal-500"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          aria-label="Search for resources"
+          aria-label="Search for websites"
         />
         <button
           type="submit"

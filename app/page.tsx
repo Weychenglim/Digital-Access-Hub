@@ -1,43 +1,14 @@
 import Link from "next/link"
-import ResourceCard from "@/components/resource-card"
 import SearchBar from "@/components/search-bar"
 import CategorySection from "@/components/category-section"
+import FeaturedWebsites from "@/components/featured-websites"
+import SiteHeader from "@/components/site-header"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-teal-600 text-white py-4 shadow-md">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <h1 className="text-3xl font-bold mb-4 md:mb-0">Digital Access Hub</h1>
-            <nav>
-              <ul className="flex space-x-6 text-lg">
-                <li>
-                  <Link href="/" className="hover:underline font-medium">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/resources" className="hover:underline font-medium">
-                    All Resources
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/help" className="hover:underline font-medium">
-                    Get Help
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="hover:underline font-medium">
-                    About Us
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Hero Section */}
       <section className="bg-teal-50 py-16">
@@ -70,42 +41,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Resources */}
+      {/* Featured Websites */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Featured Resources</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ResourceCard
-              title="Medicare Enrollment Assistance"
-              category="Healthcare"
-              description="Get help signing up for Medicare benefits and understanding your coverage options."
-              link="/resources/healthcare/medicare"
-            />
-            <ResourceCard
-              title="Food Assistance Programs"
-              category="Government"
-              description="Information about SNAP benefits, food banks, and meal delivery services in your area."
-              link="/resources/government/food-assistance"
-            />
-            <ResourceCard
-              title="Free Computer Classes"
-              category="Community"
-              description="Weekly classes at the community center to help you learn basic computer skills."
-              link="/resources/community/computer-classes"
-            />
-          </div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Featured Websites</h2>
+          <FeaturedWebsites />
           <div className="text-center mt-10">
             <Link
-              href="/resources"
+              href="/websites"
               className="bg-teal-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-teal-700 transition-colors"
             >
-              View All Resources
+              View All Websites
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Categories */}
+      {/* Categories - Keep this section with NewsAPI integration */}
       <CategorySection />
 
       {/* Help Section */}
@@ -118,13 +70,13 @@ export default function Home() {
           <div className="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Contact Us</h3>
             <p className="text-xl mb-4">
-              <strong>Phone:</strong> 012-3456789
+              <strong>Phone:</strong> (555) 123-4567
             </p>
             <p className="text-xl mb-4">
               <strong>Email:</strong> help@digitalaccesshub.org
             </p>
             <p className="text-xl mb-6">
-              <strong>In Person:</strong> 1/2 Jalan Taman Bunga Raya, <br></br>53300 Setapak, Kuala Lumpur
+              <strong>In Person:</strong> Community Center, 123 Main St.
             </p>
             <Link
               href="/help"
@@ -155,8 +107,8 @@ export default function Home() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/resources" className="text-gray-300 hover:text-white">
-                    Resources
+                  <Link href="/websites" className="text-gray-300 hover:text-white">
+                    All Websites
                   </Link>
                 </li>
                 <li>

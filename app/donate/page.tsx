@@ -57,8 +57,8 @@ export default function DonatePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/resources" className="hover:underline font-medium">
-                    All Resources
+                  <Link href="/websites" className="hover:underline font-medium">
+                    All Websites
                   </Link>
                 </li>
                 <li>
@@ -297,8 +297,8 @@ export default function DonatePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/resources" className="text-gray-300 hover:text-white">
-                    Resources
+                  <Link href="/websites" className="text-gray-300 hover:text-white">
+                    All Websites
                   </Link>
                 </li>
                 <li>
