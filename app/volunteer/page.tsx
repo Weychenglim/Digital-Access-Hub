@@ -483,7 +483,7 @@ export default function VolunteerPage() {
         title="Volunteer Application Submitted!"
         message="Thank you for your interest in volunteering with Digital Access Hub."
         contactMethod="email"
-        actionLink={{ text: "Explore Resources", href: "/resources" }}
+        actionLink={{ text: "Explore Websites", href: "/websites" }}
       />
     </div>
   )
