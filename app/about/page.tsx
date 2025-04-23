@@ -1,41 +1,12 @@
 import Link from "next/link"
 import { Users, Heart, Award } from "lucide-react"
+import SiteHeader from "@/components/site-header"
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-teal-600 text-white py-4 shadow-md">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <h1 className="text-3xl font-bold mb-4 md:mb-0">Digital Access Hub</h1>
-            <nav>
-              <ul className="flex space-x-6 text-lg">
-                <li>
-                  <Link href="/" className="hover:underline font-medium">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/websites" className="hover:underline font-medium">
-                    All Websites
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/help" className="hover:underline font-medium">
-                    Get Help
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="hover:underline font-medium">
-                    About Us
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-12">
