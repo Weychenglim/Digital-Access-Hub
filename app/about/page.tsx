@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Users, Heart, Award } from "lucide-react"
 import SiteHeader from "@/components/site-header"
+import { Award, Heart, Users } from "lucide-react"
+import Link from "next/link"
 
 export default function AboutPage() {
   return (
@@ -77,12 +77,12 @@ export default function AboutPage() {
         <section className="max-w-4xl mx-auto mb-16">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
           <p className="text-xl text-gray-700 mb-6">
-            Digital Access Hub began in 2020 when a group of community volunteers noticed how many seniors and
-            low-income families were struggling to access essential services that had moved online during the pandemic.
+            Digital Access Hub began in 2025 when a group of community volunteers noticed how many seniors and
+            low-income families were struggling to access essential services that had moved online.
           </p>
           <p className="text-xl text-gray-700 mb-6">
             What started as informal help sessions at the local library has grown into a comprehensive program with
-            dedicated volunteers, community partnerships, and a physical location at the Community Center.
+            dedicated volunteers, community partnerships, and a physical location at the 1/2 Jalan Taman Bunga Raya, 53300 Setapak, Kuala Lumpur
           </p>
           <p className="text-xl text-gray-700">
             Today, we serve hundreds of community members each month, helping them navigate everything from Medicare
